@@ -1,0 +1,87 @@
+.left-arrow {
+    float: left;
+}
+
+.right-arrow {
+    float: right;
+}
+
+.left-arrow,
+.right-arrow {
+    padding: 3px 5px;
+    margin: 0px 3px;
+ 
+    border-radius: 10px;
+    width: 23px;
+    
+}
+
+.yearsPanel {
+    background: rgb(128, 146, 247);
+    height: 40px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.current-year {}
+
+.datepciker-day {
+    
+    
+    border-radius: 5px;
+    height: 50px;
+    width: 13%;
+    text-align: center;
+    padding-top: 7px;
+    transition: .5s;
+    padding-top: 10px;
+    margin: 2px;
+    user-select:none;
+    color:rgb(128, 146, 247);
+    font-weight: 500;
+}
+
+.datepciker-day.disabled{
+    
+    color: #999999;
+    
+    
+}
+
+.datepciker-day.selected{
+    background: rgb(128, 146, 247);
+    
+    color: white;
+}
+.datePicker{
+   
+    border-radius: 20px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+   
+    
+}
+
+@media(max-width:375px){
+    .datepciker-day {
+   
+    height: 40px;
+    margin: 1px;
+    padding-top: 5px;
+}
+}
+@media(max-width:320px){
+    .datepciker-day {
+        height: 35px;                
+    }
+}
