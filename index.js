@@ -5,7 +5,7 @@ class MyDatePicker {
         endYear: Number(this.startYear) + 5,
         months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         format: "yyyy-mm-dd",
-        enabledDates: []
+        enabledDates: [],
     }
 
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -18,6 +18,7 @@ class MyDatePicker {
     datesPanel = document.getElementsByClassName("datesPanel")[0]
     today = new Date()
     year = this.today.getFullYear()
+    
     isLeapYaer = false
     currentMonth = 0
     selectedDay = 1
@@ -49,22 +50,24 @@ for(let day of  properties.days){
             this.viewMonth(this.properties.startMonth || this.properties.months[0])
 
         this.rightArrow.addEventListener("click", () => {
-
+            
             if (this.currentMonth != this.properties.months.length - 1)
                 this.currentMonth++
-            else
-                this.currentMonth = 0
+            else                
+                this.properties.startMonth == "today"?  this.currentMonth = this.today.getMonth(): this.currentMonth = 0
+
             this.selectedDay = 1
             this.daysPanel.innerHTML = ""
             this.viewMonth(this.properties.months[this.currentMonth])
 
-
         })
 
         this.leftArrow.addEventListener("click", () => {
-
-            if (this.currentMonth != 0)
-                this.currentMonth--
+            console.log(this.currentMonth + " " + this.today.getMonth() )
+            if (this.currentMonth == this.today.getMonth())            
+                this.currentMonth = this.properties.months.length - 1                
+            else if(this.currentMonth != 0)
+                this.currentMonth--                            
             else
                 this.currentMonth = this.properties.months.length - 1
             this.selectedDay = 1
