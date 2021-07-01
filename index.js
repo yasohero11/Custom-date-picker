@@ -139,11 +139,17 @@ for(let day of  properties.days){
             tempDate = tempDate.replace("dd", i)
             tempDate = tempDate.replace("mm", this.months.indexOf(this.properties.months[this.currentMonth]) + 1)
             tempDate = tempDate.replace("yyyy", this.year)
-
-            if (this.properties.enabledDates.includes(tempDate))
-                this.daysPanel.insertAdjacentHTML("beforeend", ` <div class="datepciker-day">${i}</div>`)
+            
+            if(this.properties.disableOldDates)
+                if(i >= this.today.getDate() && this.currentMonth >= this.today.getMonth()&& this.properties.enabledDates.includes(tempDate))
+                    this.daysPanel.insertAdjacentHTML("beforeend", ` <div class="datepciker-day">${i}</div>`)
+                else
+                    this.daysPanel.insertAdjacentHTML("beforeend", ` <div class="datepciker-day disabled">${i}</div>`)
+            else if (this.properties.enabledDates.includes(tempDate))
+                    this.daysPanel.insertAdjacentHTML("beforeend", ` <div class="datepciker-day">${i}</div>`)
             else
                 this.daysPanel.insertAdjacentHTML("beforeend", ` <div class="datepciker-day disabled">${i}</div>`)
+                
             tempDate = this.properties.format
         }
 
